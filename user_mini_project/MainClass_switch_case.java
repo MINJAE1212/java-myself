@@ -3,6 +3,7 @@ package user_mini_project;
 import java.util.Scanner;
 
 import ch2.OperConditionTest;
+import ch3.Exs_ch3;
 import util.random.RandomUtil;
 import util.user.UserService;
 
@@ -19,6 +20,7 @@ public class MainClass_switch_case {
             System.out.println("회원 관리 시스템에 오신 것을 환영합니다. 배운거 복습 적용해보기");
             System.out.println("1. 회원 가입  2.로그인 3.산술 연산자 테스트  4.산술 연산자 테스트2  0.종료");
             System.out.println("5. 로또 번호 생성기:배열 없는 버전");
+            System.out.println("6. 문자열길이확인");
             System.out.println("========================================================");
             System.out.println("메뉴 번호를 선택해주세요 (0~5): ");
 
@@ -39,6 +41,10 @@ public class MainClass_switch_case {
                 case "5":
                     RandomUtil.Lotto();
                     break;
+                case "6":
+                    Exs_ch3.ex3_2(scanner);
+                    break;
+
                 case "0":
                     System.out.println("프로그램을 종료합니다. 감사합니다!");
                     scanner.close(); // 스캐너 자원 반납
