@@ -2,7 +2,7 @@ package ch2;
 
 import java.util.Scanner;
 
-import util.UserService;
+import util.user.UserService;
 
 public class ScannerTestMain {
 

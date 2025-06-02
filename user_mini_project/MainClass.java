@@ -3,7 +3,7 @@ package user_mini_project;
 import java.util.Scanner;
 
 import ch2.OperConditionTest;
-import util.UserService;
+import util.user.UserService;
 
 public class MainClass {
     public static void main(String[] args) {

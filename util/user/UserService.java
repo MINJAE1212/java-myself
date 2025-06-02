@@ -1,6 +1,8 @@
-package util;
+package util.user;
 
 import java.util.Scanner;
+
+import util.date.DateUtil;
 
 public class UserService {
 
@@ -13,7 +15,7 @@ public class UserService {
         System.out.println("이메일 입력해주세요: ");
         String email = scanner.nextLine();
 
-        System.out.println("현재 시간을 불러오는 기능 확인.");
+        System.out.println("현재 시간 확인.");
         String currentTime = DateUtil.getCurrentDateTime();
 
         // ============================================================================================
