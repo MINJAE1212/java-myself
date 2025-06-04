@@ -133,6 +133,28 @@ public class Exs_ch3_2_user_array {
         }
         System.out.println("더미 회원 5명이 추가되었습니다.");
     }
+
     // 회원 더미 데이터 5개 추가하는 메서드
+    public static void searchUser(Scanner scanner) {
+        System.out.println("검색할 회원의 이름 또는 이메일을 입력하세요: ");
+        String searchQuery = scanner.nextLine();
+        boolean found = false;
+
+        for (int i = 0; i < userCount; i++) {
+            // 배열.contins() 메서드를 사용하여 검색어가 이름 또는 이메일에 포함되어 있는지 확인
+            // contains() 메서드는 문자열에 특정 문자열이 포함되어 있는지 확인하는 메서드입니다.
+            // 예시) names[i].contains(searchQuery) -> names[0] = "이상용" , searchQuery = "이상용"
+            if (names[i].contains(searchQuery) || emails[i].contains(searchQuery)) {
+                System.out.println("검색 결과: " + (i + 1) + ". " + names[i] + ", " + emails[i] + ", "
+                        + registrationDates[i]);
+                found = true;
+            }
+        }
+
+        if (!found) { // 검색 결과가 있을 경우, 실행이 안됨, found = true; -> false;
+            System.out.println("검색 결과가 없습니다.");
+        }
+
+    }
 
 }

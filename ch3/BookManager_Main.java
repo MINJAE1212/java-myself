@@ -1,5 +1,7 @@
 package ch3;
 
+import java.util.Scanner;
+
 public class BookManager_Main {
 
     public static void main(String[] args) {
@@ -7,13 +9,13 @@ public class BookManager_Main {
 
         int menu;
         do {
-            System.out.println("\n===== 도서 관리 프로그램 =====");
+            System.out.println("===== 도서 관리 프로그램 =====");
             System.out.println("=================================================================");
-            System.out.println("1. 도서 추가 , 2. 도서 조회, 3. 도서 수정, 4. 도서 삭제, 5. 검색, 6. 더미 데이터 추가 5개, 0. 종료");
+            System.out.println("1. 도서 추가 , 2. 도서 조회, 3. 도서 수정, 4. 도서 삭제, 5. 검색, 6. 더미 데이터 추가 5개,  0. 종료");
             System.out.println("=================================================================");
             System.out.print("메뉴를 선택하세요(0 ~ 6): ");
             menu = scanner.nextInt();
-            scanner.nextLine(); // 개행 문자 제거
+            scanner.nextLine();
 
             switch (menu) {
                 case 1:
@@ -32,7 +34,7 @@ public class BookManager_Main {
                     BookManager.searchBook(scanner);
                     break;
                 case 6:
-                    BookManager.addDummyBooks();
+                    BookManager.addDummyUsers();
                     System.out.println("더미 데이터 5개가 추가되었습니다.");
                     break;
                 case 0:
@@ -44,7 +46,6 @@ public class BookManager_Main {
 
         } while (menu != 0);
 
-        System.out.println("=================================================================");
-        System.out.println("프로그램이 종료되었습니다.");
+        scanner.close();
     }
 }
