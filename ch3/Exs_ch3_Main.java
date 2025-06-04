@@ -6,14 +6,14 @@ public class Exs_ch3_Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // int[] returnArray = Exs_ch3.ex3_8_return(); // 배열 생성, 조회, 반복문 출력 예시
-        // System.out.println("ex3-8-2, 리턴된 배열의 값:");
-        // for (int number : returnArray) {
-        // System.out.print(number + " "); // 1 2 3 4 5 출력
-        // }
+        int[] returnArray = Exs_ch3.ex3_8_return(); // 배열 생성, 조회, 반복문 출력 예시
+        System.out.println("ex3-8-2, 리턴된 배열의 값:");
+        for (int number : returnArray) {
+            System.out.print(number + " "); // 1 2 3 4 5 출력
+        }
 
-        // Exs_ch3.ex3_8();
-        // System.out.println("============================");
+        Exs_ch3.ex3_8();
+        System.out.println("============================");
 
         // Exs_ch3.ex3_7(scanner);
         // System.out.println("============================");

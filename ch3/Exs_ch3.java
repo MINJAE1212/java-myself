@@ -4,6 +4,26 @@ import java.util.Scanner;
 
 public class Exs_ch3 {
 
+    public static void ex3_9_exception() {
+        int a = 10;
+        int b = 0; // 0으로 나누는 예외 발생 가능성 있음.
+        try {
+            // 언제 ? try 블록안에서 작업을 하나요?
+            // 네트워크 전송, 파일 입출력, 데이터베이스 연결 등, 이러한 작업을 더 많이함.
+            // 실행순서
+            // 정상인 경우 : 순서 1 -> 순서 2 -> 순서 4
+            // 예외 발생시 : 순서 1 -> 순서 3 -> 순서 4
+            int result = a / b; // 예외 발생 가능 코드, 순서1
+            System.out.println("결과: " + result);// 순서2,
+        } catch (ArithmeticException e) { // ArithmeticException 예외 처리
+            // 순서3
+            System.out.println("0으로 나눌 수 없습니다. 예외 메시지: " + e.getMessage());
+        } finally {
+            // 순서4
+            System.out.println("예외 처리 블록이 끝났습니다.");
+        }
+    }
+
     public static void ex3_8() {
 
         int[] numbers = new int[5];
