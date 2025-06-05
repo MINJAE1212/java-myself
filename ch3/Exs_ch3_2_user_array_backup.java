@@ -3,47 +3,38 @@ package ch3;
 import java.util.Scanner;
 
 import util.date.DateUtil;
-import util.model.Member;
 
-public class Exs_ch3_2_user_array {
+public class Exs_ch3_2_user_array_backup {
+    // 회원관리 프로그램 버전2, 저장소 : 임시 메모리(배열) 이용할 예정.
+    // 조건) 회원 수는 100명 이하, 2)회원 정보는 이름, 이메일, 패스워드, 등록일로 구성.
 
     static final int MAX_USERS = 100; // 최대 회원 수
-
+    // 이름, 이메일, 패스워드, 등록일을 저장할 배열 선언
     static String[] names = new String[MAX_USERS];
     static String[] emails = new String[MAX_USERS];
     static String[] passwords = new String[MAX_USERS];
     static String[] registrationDates = new String[MAX_USERS];
-
-    // Member 클래스를 담아 둘 배열 생성. 크기는 동일하게 100명으로 정하기.
-    static Member[] members = new Member[MAX_USERS];
-
-    // 상태 변수,
     static int userCount = 0; // 현재 등록된 회원 수
 
     // 회원 추가 메서드
     public static void addUser(Scanner scanner) {
-        if (userCount < MAX_USERS) { // 기본 유효성 체크
+        if (userCount < MAX_USERS) {
             System.out.println("이름을 입력하세요: ");
             String name = scanner.nextLine();
+            names[userCount] = name; // 이름 저장
 
             System.out.println("이메일을 입력하세요: ");
             String email = scanner.nextLine();
+            emails[userCount] = email; // 이메일 저장
 
             System.out.println("패스워드를 입력하세요: ");
             String password = scanner.nextLine();
+            passwords[userCount] = password; // 패스워드 저장
 
             // 현재 날짜와 시간 저장
             String registrationDate = DateUtil.getCurrentDateTime();
+            registrationDates[userCount] = registrationDate; // 등록일 저장
 
-            // public Member(String name, String password, String email, String regDate) {
-            // 사용자들로 부터 입력 받은 정보를, 모델 클래스의 인스턴스 생성 하는 곳에 사용.
-            Member member = new Member(name, password, email, registrationDate);
-
-            // 배열의 단점, 인덱스의 위치 조정 자동으로 안해줌.
-            // 앞에 삭제시, 삭제후 인덱스 이동을 수동을 했음. 그래서,
-            // 지금 배열의 불편한 부분을 감수하고, -> 배열의 업그레이드 버전 -> arrayList 등으로 해결.
-
-            members[userCount] = member;
             // 회원 수 증가
             userCount++;
             System.out.println("회원이 추가되었습니다: " + name + ", " + email + ", " + registrationDate);
@@ -56,19 +47,15 @@ public class Exs_ch3_2_user_array {
     public static void viewUsers() {
         if (userCount == 0) {
             System.out.println("등록된 회원이 없습니다.");
-            return; // 등록된 회원이 없을 때, 조회 기능 종료, 메서드(함수)를 나가기
+            return;
         }
         System.out.println("등록된 회원 목록:");
         for (int i = 0; i < userCount; i++) {
-            // System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". " + names[i] + ", "
-            // + emails[i] + ", "
-            // + registrationDates[i]);
-            members[i].showInfo();
+            System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". " + names[i] + ", " + emails[i] + ", "
+                    + registrationDates[i]);
         }
     } // 회원 조회 메서드
 
-    // 회원 수정 메서드
-    // 회원 전체 목록에서, 해당 회원의 인덱스를 번호를 이용해서, 회원 정보를 수정해보기.
     public static void updateUser(Scanner scanner) {
         System.out.println("수정할 회원의 인덱스를 입력하세요 (0 ~ " + (userCount - 1) + "): ");
         int index = scanner.nextInt(); // 수정할 회원의 인덱스 입력
@@ -127,6 +114,7 @@ public class Exs_ch3_2_user_array {
         userCount--;
         System.out.println("회원이 삭제되었습니다.");
     }
+
     // 회원 삭제 메서드
 
     // 회원 더미 데이터 5개 추가하는 메서드
@@ -145,10 +133,8 @@ public class Exs_ch3_2_user_array {
         }
         System.out.println("더미 회원 5명이 추가되었습니다.");
     }
-    // 회원 더미 데이터 5개 추가하는 메서드
 
-    // 검색 기능
-    // 회원 목록에서 이름 또는 이메일로 검색하는 기능을 추가할 수 있습니다.
+    // 회원 더미 데이터 5개 추가하는 메서드
     public static void searchUser(Scanner scanner) {
         System.out.println("검색할 회원의 이름 또는 이메일을 입력하세요: ");
         String searchQuery = scanner.nextLine();
@@ -168,7 +154,7 @@ public class Exs_ch3_2_user_array {
         if (!found) { // 검색 결과가 있을 경우, 실행이 안됨, found = true; -> false;
             System.out.println("검색 결과가 없습니다.");
         }
+
     }
-    // 검색 기능
 
 }
